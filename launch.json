@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "CrawlyieldToken",
+    "name": "Crawlyield",
+    "symbol": "CRAWL",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8800,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x0f44a55663e888bb63618a0c31b68cbc6c01aa71"
+  },
+  "notes": "CrawlyieldToken (src/CrawlyieldToken.sol) is a fixed-supply ERC-20: name Crawlyield, symbol CRAWL, 18 decimals. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 CRAWL (1000000000000000000000000000 minor units) once to msg.sender, which on this launch is the ProjectFactory; the factory then pays the supply out (the swarm's share to the launch's MerkleDistributor, 88% to seed the IMD-paired Uniswap v4 pool, the rest to economics.remainderTo). There is no mint function, no owner, minter, pauser or upgrade path, and no fee, tax, reflection or burn on transfer, so every launch flow moves exactly what it says and no address needs exempting. Holders may burn their own tokens (burn) or tokens they were approved to spend (burnFrom), so the supply can only shrink. The token also supports EIP-2612 permit. It is built from OpenZeppelin v5.0.2 ERC20, ERC20Burnable and ERC20Permit, vendored under lib/. No application contracts are deployed with it and no initialization calls are needed. pool.initialPrice is provenance only: the deployer derives the opening price from economics.initialMarketCapWei and token.totalSupply."
+}
